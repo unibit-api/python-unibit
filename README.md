@@ -45,7 +45,7 @@ from unibit.news import StockNews
 sn = StockNews(key="YOUR_KEY")
 aapl_news = sn.getLatestStockNews("AAPL")
 ```
-##Contribute
+## Contribute
 
 In the UniBit Python SDK, we not only want to wrap the UniBit API, but open source methods of stock analysis, be it with some fancy quantitative strategy, with graphing, or with machine learning. Propose something in an issue or contact me at stefan@unibit.ai if you want to help!
 
