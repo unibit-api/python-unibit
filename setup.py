@@ -7,13 +7,13 @@ except IOError:
     long_description = "Python SDK for the UniBit API"
 setuptools.setup(
     name="python-unibit",
-    version="1.0.0",
+    version="1.0.1",
     author="Stefan Grosser",
     author_email="stefan@unibit.ai",
     description="Python SDK for the UniBit API",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/unibit-ai/python-unibit",
+    url="https://github.com/unibit-api/python-unibit",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
