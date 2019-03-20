@@ -1,4 +1,7 @@
-# unibit
+# UniBit
+
+[![PyPI version](https://badge.fury.io/py/python-unibit.svg)](https://badge.fury.io/py/python-unibit)
+[![Documentation Status](https://readthedocs.org/projects/unibit/badge/?version=latest)](https://unibit.readthedocs.io/en/latest/?badge=latest)
 
 *A Python module to get stock data and news from the UniBit API*
 
@@ -45,7 +48,13 @@ from unibit.news import StockNews
 sn = StockNews(key="YOUR_KEY")
 aapl_news = sn.getLatestStockNews("AAPL")
 ```
-## Contribute
 
+## Contribute!
 In the UniBit Python SDK, we not only want to wrap the UniBit API, but open source methods of stock analysis, be it with some fancy quantitative strategy, with graphing, or with machine learning. Propose something in an issue or contact me at stefan@unibit.ai if you want to help!
+
+## Documentation
+Detailed documentation on the UniBit API is available at https://unibit.ai/docs.
+
+## License
+This project is developed under an MIT License. 
 
