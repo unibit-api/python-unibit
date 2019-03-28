@@ -2,17 +2,20 @@ from .unibit import UniBit as ub
 
 class StockPrice(ub):
 
-	def getPricesRealTime(self, ticker):
+	def getPricesRealTime(self, ticker, size=None, datatype='json'):
 		""" Get real time stock prices
 
 		Keyword Arguments:
 			ticker: Company ticker 
+			datatype: Data type of response. Either 'json' or 'csv'
+			size: Integer (n) which will have the response return the latest n prices.
+					If unspecified, all real time results will be returned, going back 1 month. 
 		"""
 
 		endpoints = ['realtimestock']
-		return self.make_request(endpoints=endpoints, ticker=ticker, data={})
+		return self.make_request(endpoints=endpoints, ticker=ticker, data={'datatype': datatype, 'size':size})
 
-	def getPricesHistorical(self, ticker, date_range, interval):
+	def getPricesHistorical(self, ticker, date_range, interval, datatype='json'):
 		""" Get real time stock prices
 
 		Keyword Arguments:
@@ -21,6 +24,7 @@ class StockPrice(ub):
 							either 1m, 3m, 1y, 3y, 5y, 10y, or 20y
 			interval: A positive number (n). If passed, chart data will 
 						return every nth element as defined by Interval
+			datatype: Data type of response. Either 'json' or 'csv' 
 		"""
 
 		if date_range not in ['1m', '3m', '1y', '3y', '5y', '10y', '20y']:
@@ -31,7 +35,7 @@ class StockPrice(ub):
 
 		endpoints = ['historicalstockprice']
 
-		return self.make_request(endpoints=endpoints, ticker=ticker, data={'range':date_range, 'interval':interval})
+		return self.make_request(endpoints=endpoints, ticker=ticker, data={'range':date_range, 'interval':interval, 'datatype': datatype})
 
 
 

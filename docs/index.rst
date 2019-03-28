@@ -1,5 +1,7 @@
-unibit
+UniBit
 ======
+
+|PyPI version| |Documentation Status|
 
 *A Python module to get stock data and news from the UniBit API*
 
@@ -62,11 +64,36 @@ Get the latest news on Apple
    sn = StockNews(key="YOUR_KEY")
    aapl_news = sn.getLatestStockNews("AAPL")
 
-Contribute
-----------
+The CSV format is supported on many of the UniBit APIs. Requesting a CSV
+datatype will return a ``csv.reader()`` of the data
+
+.. code:: python
+
+   from unibit.stockprice import StockPrice
+   sp = StockPrice(key="YOUR_KEY")
+   aapl_price_csv = sp.getPricesRealTime("AAPL", size=10, datatype="csv")
+
+Contribute!
+-----------
 
 In the UniBit Python SDK, we not only want to wrap the UniBit API, but
 open source methods of stock analysis, be it with some fancy
 quantitative strategy, with graphing, or with machine learning. Propose
 something in an issue or contact me at stefan@unibit.ai if you want to
 help!
+
+Documentation
+-------------
+
+Detailed documentation on the UniBit API is available at
+https://unibit.ai/docs.
+
+License
+-------
+
+This project is developed under an MIT License.
+
+.. |PyPI version| image:: https://badge.fury.io/py/python-unibit.svg
+   :target: https://badge.fury.io/py/python-unibit
+.. |Documentation Status| image:: https://readthedocs.org/projects/unibit/badge/?version=latest
+   :target: https://unibit.readthedocs.io/en/latest/?badge=latest

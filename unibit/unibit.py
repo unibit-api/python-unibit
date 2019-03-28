@@ -1,8 +1,10 @@
 import requests
+import csv
 
 class UniBit(object):
 
 	_UNIBIT_API_CALL_BASE = "https://api.unibit.ai/"
+	_VALID_DATA_TYPE = ['json', 'csv']
 
 	def __init__(self, key):
 		""" Initialize the UniBit class
@@ -29,6 +31,14 @@ class UniBit(object):
 		url = '{}{}/{}?'.format(self._UNIBIT_API_CALL_BASE, '/'.join(endpoints), ticker)
 		data['AccessKey'] = self.key
 
+		# Remove all optional keys left unspecified
+		for k, v in data.items():
+			if v is None:
+				data.pop(k)
+			
+		if 'datatype' in data and data['datatype'] not in self._VALID_DATA_TYPE:
+				data['datatype'] = 'json'
+
 		return self._handle_request(url, data)
 
 	
@@ -48,7 +58,12 @@ class UniBit(object):
 
 		# Handle possibly faulty response
 		try:
-			response_data = res.json()
+			if 'datatype' in data and data['datatype'] == 'csv':
+				decoded_content = res.content.decode('utf-8')
+				response_data = csv.reader(decoded_content.splitlines(), delimiter=',')
+
+			else:
+				response_data = res.json()
 
 		except Exception as e:
 			print("Received error: {} \n from response value {}".format(e, res))
