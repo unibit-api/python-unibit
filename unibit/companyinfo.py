@@ -61,7 +61,7 @@ class CompanyInfo(ub):
 
 		return self.make_request(ticker=ticker, endpoints=endpoints, data={'ownership_type':ownership_type})
 
-	def getInsiderTransactions(self, ticker, datatype='json'):
+	def getInsiderTransactions(self, ticker, datatype='json', size=None):
 		""" Get insider transactions by ticker
 
 		Keyword Arguments:
@@ -71,7 +71,7 @@ class CompanyInfo(ub):
 
 		endpoints = ['insidertrading']
 
-		return self.make_request(ticker=ticker, endpoints=endpoints, data={'datatype':datatype})
+		return self.make_request(ticker=ticker, endpoints=endpoints, data={'datatype':datatype ,'size':size})
 
 	def getCIKNumber(self, ticker):
 		""" Get CIK Number by ticker
