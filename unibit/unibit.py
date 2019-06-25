@@ -3,7 +3,7 @@ import csv
 
 class UniBit(object):
 
-	_UNIBIT_API_CALL_BASE = "https://api.unibit.ai/"
+	_UNIBIT_API_CALL_BASE = "https://api.unibit.ai/api/"
 	_VALID_DATA_TYPE = ['json', 'csv']
 
 	def __init__(self, key):

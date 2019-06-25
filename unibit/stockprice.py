@@ -15,7 +15,7 @@ class StockPrice(ub):
 		endpoints = ['realtimestock']
 		return self.make_request(endpoints=endpoints, ticker=ticker, data={'datatype': datatype, 'size':size})
 
-	def getPricesHistorical(self, ticker, date_range, interval, datatype='json'):
+	def getPricesHistorical(self, ticker, range, interval, datatype='json'):
 		""" Get real time stock prices
 
 		Keyword Arguments:
@@ -27,7 +27,7 @@ class StockPrice(ub):
 			datatype: Data type of response. Either 'json' or 'csv' 
 		"""
 
-		if date_range not in ['1m', '3m', '1y', '3y', '5y', '10y', '20y']:
+		if range not in ['1m', '3m', '1y', '3y', '5y', '10y', '20y']:
 			raise ValueError('Unsupported range value')
 
 		if (not isinstance(interval, int) or interval <= 0):
@@ -35,7 +35,7 @@ class StockPrice(ub):
 
 		endpoints = ['historicalstockprice']
 
-		return self.make_request(endpoints=endpoints, ticker=ticker, data={'range':date_range, 'interval':interval, 'datatype': datatype})
+		return self.make_request(endpoints=endpoints, ticker=ticker, data={'range':range, 'interval':interval, 'datatype': datatype})
 
 
 
