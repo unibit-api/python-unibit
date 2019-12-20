@@ -27,7 +27,7 @@ class UniBit(object):
 			data: Data passed to UniBit API
 		"""
 		url = '{}{}?'.format(self._UNIBIT_API_CALL_BASE, endpoints)
-		print(url);
+		#print(url);
 		data['accessKey'] = self.key
 
 		# Remove all optional keys left unspecified

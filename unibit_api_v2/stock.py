@@ -12,7 +12,14 @@ class StockPrice(ub):
 		"""
 
 		# endpoints = ['realtime']
+		if isinstance(ticker, list):
+			temp = "";
+			for item in ticker:
+				temp = temp + item + ","
+			ticker = temp
+		
 		endpoints = "stock/realtime"
+		
 		return self.make_request(endpoints=endpoints, data={'tickers': ticker, 'startDate': startDate, 'endDate': endDate, 'startMinute': startMinute, 'endMinute': endMinute, 'datatype': datatype, 'size':size})
 
 	def getHistoricalStockPrice(self, ticker, startDate, endDate, interval=1, selectedFields="all", datatype='json'):
@@ -33,5 +40,12 @@ class StockPrice(ub):
 		# 	raise ValueError('Interval must be a positive integer')
 
 		# endpoints = ['historical']
+		if isinstance(ticker, list):
+			temp = "";
+			for item in ticker:
+				temp = temp + item + ","
+			ticker = temp
+		
 		endpoints = "stock/historical"
+		
 		return self.make_request(endpoints=endpoints, data={'tickers': ticker, 'startDate': startDate, 'endDate': endDate,'datatype': datatype})
