@@ -11,6 +11,11 @@ To get started, sign up at (https://unibit.ai/login) to request a free access ke
 
 The UniBit Stock News API requires a premium account, but in return gives a wealth of news articles on all 8000 US-listed companies. Along with this, UniBit provides analyses on each news article. With deep learning, each article is classified into a comprehensive genre list, and named entities and sentiment are also extracted. 
 
+## Update
+Unibit python SDK is now available for Version2 APIs!
+For the API documentation, visit (https://unibit.ai/docs)
+For the python SDK for Version2 APIs, go to [Version2 APIs example](#v2_example)
+
 ## Install
 To install UniBit, type:
 ```shell
@@ -48,6 +53,65 @@ from unibit.news import StockNews
 sn = StockNews(key="YOUR_KEY")
 aapl_news = sn.getLatestStockNews("AAPL")
 ```
+
+## <a name = "v2_example"></a>Version2 APIs Examples
+
+Get the real time price of Apple (AAPL)
+
+```python
+from unibit_api_v2.stock import StockPrice
+sp = StockPrice(key="YOUR_KEY")
+aapl_stock = sp.getHistoricalStockPrice(ticker=["AAPL","WORK"],startDate="2019-09-15",endDate="2019-09-20")
+```
+
+Get Apple's Company Profile
+
+```python
+from unibit_api_v2.company import CompanyInfo
+ci = CompanyInfo(key="YOUR_KEY")
+aapl_profile = ci.getCompanyProfile(ticker=["AAPL"])
+```
+
+Get Apple's Stock News
+
+```python
+from unibit_api_v2.news import StockNews
+sn = StockNews(key = "YOUR_KEY")
+aapl_news = sn.getStockNews(ticker = "AAPL", startDate = "2019-08-25", endDate = "2019-08-30", startMinute = "10:00:00", endMinute = "11:00:00", genre = "partnership", sector = "technology")
+```
+
+Get Corporate Splits
+
+```python
+from unibit_api_v2.corporate import Corporate
+corporate = Corporate(key = "YOUR_KEY")
+corporate_splits = corporate.getCorporateSplits(ticker = "all", startDate="2019-02-01", endDate="2019-02-11")
+```
+
+Get Historical Crypto Price
+
+```python
+from unibit_api_v2.crypto import CryptoPrice
+cp = CryptoPrice(key = "YOUR_KEY")
+historical_crypto_price = cp.getHistoricalCryptoPrice(ticker="BCH-USD", startDate = "2019-08-25", endDate = "2019-08-30")
+```
+
+Get Forex Rate
+
+```python
+from unibit_api_v2.forex import ForexRate
+fr = ForexRate(key = "YOUR_KEY")
+realtime_forex = fr.getRealtimeForexRates(base = "usd", foreign = "cny,eur,inr", amount = 1, startDate = "2019-08-29", endDate = "2019-08-29", startMinute = "11:00:00", endMinute = "12:00:00")
+```
+
+Get Asset Coverage
+
+```python
+from unibit_api_v2.reference import Coverage
+c = Coverage(key = "YOUR_KEY")
+asset_coverage = c.getAssetCoverage(exchange = "NASDAQ")
+```
+
 
 The CSV format is supported on many of the UniBit APIs. Requesting a CSV datatype will return a ```csv.reader()``` of the data
 
