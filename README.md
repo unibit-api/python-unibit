@@ -28,7 +28,7 @@ git clone https://github.com/unibit-api/python-unibit.git
 pip install -e python-unibit
 ```
 
-## Examples
+## Version1 APIs Examples
 
 Get the real time price of Apple (AAPL)
 
