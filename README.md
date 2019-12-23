@@ -33,7 +33,7 @@ pip install -e python-unibit
 Get the real time price of Apple (AAPL)
 
 ```python
-from unibit.stockprice import StockPrice
+from unibit_api_v1.stockprice import StockPrice
 sp = StockPrice(key="YOUR_KEY")
 aapl_price = sp.getPricesRealTime("AAPL")
 ```
@@ -41,7 +41,7 @@ aapl_price = sp.getPricesRealTime("AAPL")
 Get Apple's Company Profile
 
 ```python
-from unibit.companyinfo import CompanyInfo
+from unibit_api_v1.companyinfo import CompanyInfo
 ci = CompanyInfo(key="YOUR_KEY")
 aapl_profile = ci.getCompanyProfile("AAPL")
 ```
@@ -49,7 +49,7 @@ aapl_profile = ci.getCompanyProfile("AAPL")
 Get the latest news on Apple
 
 ```python
-from unibit.news import StockNews
+from unibit_api_v1.news import StockNews
 sn = StockNews(key="YOUR_KEY")
 aapl_news = sn.getLatestStockNews("AAPL")
 ```
