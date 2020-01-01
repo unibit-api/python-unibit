@@ -1,19 +1,19 @@
-from unibit.reference import Reference
-from unibit.stockprice import StockPrice
-from unibit.companyinfo import CompanyInfo
-from unibit.news import StockNews
 from unibit.Crypto import Crypto
 from unibit.Forex import Forex
+from unibit.companyinfo import CompanyInfo
+from unibit.news import StockNews
+from unibit.reference import Reference
+from unibit.stockprice import StockPrice
 
 rf = Reference(key="demo")
 data1 = rf.getAssetCoverage(exchange="ASX")
 print(data1)
 
 stock = StockPrice(key="demo")
-data2 = stock.getPricesRealTime(ticker="AAPL",size=10)
+data2 = stock.getPricesRealTime(ticker="AAPL", size=10)
 print(data2)
 
-data3 = stock.getPricesHistorical(ticker="AAPL", range="1m",interval=1)
+data3 = stock.getPricesHistorical(ticker="AAPL", range="1m", interval=1)
 print(data3)
 
 companyInfo = CompanyInfo(key="demo")
@@ -40,22 +40,16 @@ print(data10)
 
 # need to figure it out have some bugs
 news = StockNews(key="demo")
-data11=news.getLatestStockNews(ticker = "AAPL")
+data11 = news.getLatestStockNews(ticker="AAPL")
 print(data11)
 
-data12 = news.getStockNewsAnalysis(ticker="AAPL" ,range="1w")
+data12 = news.getStockNewsAnalysis(ticker="AAPL", range="1w")
 print(data12)
 
-
 forex = Forex(key="NVhnTCzYzE-RbioZOpvYCxhTOgwVRl3M")
-data13=forex.getForex(base_Currency="USD",currency="CNY,EUR",size=1,amount=10)
+data13 = forex.getForex(base_Currency="USD", currency="CNY,EUR", size=1, amount=10)
 print(data13)
 
 crypto = Crypto(key="NVhnTCzYzE-RbioZOpvYCxhTOgwVRl3M")
 data14 = crypto.getHistoricalCryptoPrice(ticker="BTC", range="3m", interval=1)
 print(data14)
-
-
-
-
-
