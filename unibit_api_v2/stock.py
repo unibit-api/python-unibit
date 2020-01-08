@@ -15,10 +15,7 @@ class StockPrice(ub):
 
         # endpoints = ['realtime']
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
 
         endpoints = "stock/realtime"
 
@@ -46,10 +43,7 @@ class StockPrice(ub):
 
         # endpoints = ['historical']
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
 
         endpoints = "stock/historical"
 

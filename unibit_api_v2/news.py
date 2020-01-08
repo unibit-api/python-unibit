@@ -6,10 +6,7 @@ class StockNews(ub):
     def getStockNews(self, ticker, startDate, endDate, startMinute, endMinute, genre, sector, selectedFields="all",
                      datatype="json", size=None):
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
 
         endpoints = 'company/news'
 

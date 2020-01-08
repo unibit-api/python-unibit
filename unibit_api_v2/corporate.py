@@ -6,10 +6,7 @@ class Corporate(ub):
     def getCorporateSplits(self, ticker, startDate, endDate, selectedFields="all", datatype='json', size=None):
 
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
 
         endpoints = 'company/actions/splits'
 
@@ -20,10 +17,7 @@ class Corporate(ub):
     def getCorporateDividends(self, ticker, startDate, endDate, selectedFields="all", datatype='json', size=None):
 
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
 
         endpoints = 'company/actions/dividends'
 
