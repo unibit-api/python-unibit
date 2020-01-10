@@ -15,6 +15,7 @@ The UniBit Stock News API requires a premium account, but in return gives a weal
 Unibit python SDK is now available for Version2 APIs!
 For the API documentation, visit (https://unibit.ai/docs)
 For the python SDK for Version2 APIs, go to [Version2 APIs example](#v2_example)
+<br />*If there are multiple tickers in your input, please put them into a list, see examples [Version2 APIs example](#v2_example)*
 
 ## Install
 To install UniBit, type:
@@ -77,7 +78,7 @@ Get Apple's Stock News
 ```python
 from unibit_api_v2.news import StockNews
 sn = StockNews(key = "YOUR_KEY")
-aapl_news = sn.getStockNews(ticker = "AAPL", startDate = "2019-08-25", endDate = "2019-08-30", startMinute = "10:00:00", endMinute = "11:00:00", genre = "partnership", sector = "technology")
+aapl_news = sn.getStockNews(ticker = ["AAPL"], startDate = "2019-08-25", endDate = "2019-08-30", startMinute = "10:00:00", endMinute = "11:00:00", genre = "partnership", sector = "technology")
 ```
 
 Get Corporate Splits
@@ -85,7 +86,7 @@ Get Corporate Splits
 ```python
 from unibit_api_v2.corporate import Corporate
 corporate = Corporate(key = "YOUR_KEY")
-corporate_splits = corporate.getCorporateSplits(ticker = "all", startDate="2019-02-01", endDate="2019-02-11")
+corporate_splits = corporate.getCorporateSplits(ticker = ["all"], startDate="2019-02-01", endDate="2019-02-11")
 ```
 
 Get Historical Crypto Price
@@ -93,7 +94,7 @@ Get Historical Crypto Price
 ```python
 from unibit_api_v2.crypto import CryptoPrice
 cp = CryptoPrice(key = "YOUR_KEY")
-historical_crypto_price = cp.getHistoricalCryptoPrice(ticker="BCH-USD", startDate = "2019-08-25", endDate = "2019-08-30")
+historical_crypto_price = cp.getHistoricalCryptoPrice(ticker=["BCH-USD"], startDate = "2019-08-25", endDate = "2019-08-30")
 ```
 
 Get Forex Rate
@@ -101,7 +102,7 @@ Get Forex Rate
 ```python
 from unibit_api_v2.forex import ForexRate
 fr = ForexRate(key = "YOUR_KEY")
-realtime_forex = fr.getRealtimeForexRates(base = "usd", foreign = "cny,eur,inr", amount = 1, startDate = "2019-08-29", endDate = "2019-08-29", startMinute = "11:00:00", endMinute = "12:00:00")
+realtime_forex = fr.getRealtimeForexRates(base = "usd", foreign = ["cny","eur","inr"], amount = 1, startDate = "2019-08-29", endDate = "2019-08-29", startMinute = "11:00:00", endMinute = "12:00:00")
 ```
 
 Get Asset Coverage
