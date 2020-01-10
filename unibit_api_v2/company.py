@@ -21,10 +21,9 @@ class CompanyInfo(ub):
             raise ValueError('Unsupported Interval value')
 
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = 'company/financials'
 
@@ -40,10 +39,9 @@ class CompanyInfo(ub):
         """
 
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = 'company/profile'
 
@@ -56,10 +54,7 @@ class CompanyInfo(ub):
             datatype: Data type of response. Either 'json' or 'csv'
         """
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
 
         endpoints = 'company/financialSummary'
         return self.make_request(endpoints=endpoints, data={'tickers': ticker, 'datatype': datatype})
@@ -72,10 +67,9 @@ class CompanyInfo(ub):
                                 'majority_holder', 'top_institutional_holder', or 'top_mutual_fund_holder'
         """
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         if ownershipType not in ['majority_holder', 'top_institutional_holder', 'top_mutual_fund_holder']:
             raise ValueError('Unsupported Ownership Type')
@@ -93,10 +87,9 @@ class CompanyInfo(ub):
             datatype: Data type of response. Either 'json' or 'csv'
         """
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = 'company/insiderTransaction'
 
@@ -120,10 +113,9 @@ class CompanyInfo(ub):
             datatype: Data type of response. Either 'json' or 'csv'
         """
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = 'company/secFilingLink'
 

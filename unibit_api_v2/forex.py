@@ -7,10 +7,9 @@ class ForexRate(ub):
                               selectedFields="all", datatype="json"):
 
         if isinstance(foreign, list):
-            temp = "";
-            for item in foreign:
-                temp = temp + item + ","
-            foreign = temp
+            foreign = ",".join(foreign)
+        else:
+            raise TypeError('foreign input should be a list')
 
         if isinstance(amount, str):
             temp = int(amount)
@@ -27,10 +26,9 @@ class ForexRate(ub):
                                 selectedFields="all", datatype="json"):
 
         if isinstance(foreign, list):
-            temp = "";
-            for item in foreign:
-                temp = temp + item + ","
-            foreign = temp
+            foreign = ",".join(foreign)
+        else:
+            raise TypeError('foreign input should be a list')
 
         if isinstance(amount, str):
             temp = int(amount)

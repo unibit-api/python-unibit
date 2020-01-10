@@ -6,10 +6,9 @@ class Corporate(ub):
     def getCorporateSplits(self, ticker, startDate, endDate, selectedFields="all", datatype='json', size=None):
 
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = 'company/actions/splits'
 
@@ -20,10 +19,9 @@ class Corporate(ub):
     def getCorporateDividends(self, ticker, startDate, endDate, selectedFields="all", datatype='json', size=None):
 
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
+        else:
+            raise TypeError('tickers input should be a list')
 
         endpoints = 'company/actions/dividends'
 

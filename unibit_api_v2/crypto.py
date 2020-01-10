@@ -6,10 +6,9 @@ class CryptoPrice(ub):
     def getHistoricalCryptoPrice(self, ticker, startDate, endDate, size=None, selectedFields="all", datatype="json"):
 
         if isinstance(ticker, list):
-            temp = "";
-            for item in ticker:
-                temp = temp + item + ","
-            ticker = temp
+            ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = 'crypto/historical'
 
