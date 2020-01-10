@@ -8,6 +8,8 @@ class ForexRate(ub):
 
         if isinstance(foreign, list):
             foreign = ",".join(foreign)
+        else:
+            raise TypeError('foreign input should be a list')
 
         if isinstance(amount, str):
             temp = int(amount)
@@ -25,6 +27,8 @@ class ForexRate(ub):
 
         if isinstance(foreign, list):
             foreign = ",".join(foreign)
+        else:
+            raise TypeError('foreign input should be a list')
 
         if isinstance(amount, str):
             temp = int(amount)

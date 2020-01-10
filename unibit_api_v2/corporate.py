@@ -7,6 +7,8 @@ class Corporate(ub):
 
         if isinstance(ticker, list):
             ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = 'company/actions/splits'
 
@@ -18,6 +20,8 @@ class Corporate(ub):
 
         if isinstance(ticker, list):
             ticker = ",".join(ticker)
+        else:
+            raise TypeError('tickers input should be a list')
 
         endpoints = 'company/actions/dividends'
 

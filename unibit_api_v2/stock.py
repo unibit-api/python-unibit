@@ -16,6 +16,8 @@ class StockPrice(ub):
         # endpoints = ['realtime']
         if isinstance(ticker, list):
             ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = "stock/realtime"
 
@@ -44,6 +46,8 @@ class StockPrice(ub):
         # endpoints = ['historical']
         if isinstance(ticker, list):
             ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = "stock/historical"
 

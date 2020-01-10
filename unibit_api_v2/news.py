@@ -7,6 +7,8 @@ class StockNews(ub):
                      datatype="json", size=None):
         if isinstance(ticker, list):
             ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = 'company/news'
 

@@ -22,6 +22,8 @@ class CompanyInfo(ub):
 
         if isinstance(ticker, list):
             ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = 'company/financials'
 
@@ -38,6 +40,8 @@ class CompanyInfo(ub):
 
         if isinstance(ticker, list):
             ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = 'company/profile'
 
@@ -64,6 +68,8 @@ class CompanyInfo(ub):
         """
         if isinstance(ticker, list):
             ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         if ownershipType not in ['majority_holder', 'top_institutional_holder', 'top_mutual_fund_holder']:
             raise ValueError('Unsupported Ownership Type')
@@ -82,6 +88,8 @@ class CompanyInfo(ub):
         """
         if isinstance(ticker, list):
             ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = 'company/insiderTransaction'
 
@@ -106,6 +114,8 @@ class CompanyInfo(ub):
         """
         if isinstance(ticker, list):
             ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
 
         endpoints = 'company/secFilingLink'
 
