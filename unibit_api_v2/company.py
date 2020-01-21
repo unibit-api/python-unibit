@@ -3,7 +3,7 @@ from .unibit import UniBit as ub
 
 class CompanyInfo(ub):
 
-    def getCompanyFinancials(self, ticker, interval, statement, startDate, endDate, selectedFields="all",
+    def getCompanyFinancials(self, ticker, interval, statement, startDate, endDate, selectedFields=None,
                              datatype='json'):
         """ Get company financials by ticker
         Keyword Arguments:
@@ -29,9 +29,9 @@ class CompanyInfo(ub):
 
         return self.make_request(endpoints=endpoints,
                                  data={'tickers': ticker, 'statement': statement, 'startDate': startDate,
-                                       'endDate': endDate, 'interval': interval, 'datatype': datatype})
+                                       'endDate': endDate, 'interval': interval, 'datatype': datatype, 'selectedFields': selectedFields})
 
-    def getCompanyProfile(self, ticker, selectedFields="all", datatype='json'):
+    def getCompanyProfile(self, ticker, selectedFields=None, datatype='json'):
         """ Get company profile by ticker
         Keyword Arguments:
             ticker: Company ticker
@@ -45,9 +45,9 @@ class CompanyInfo(ub):
 
         endpoints = 'company/profile'
 
-        return self.make_request(endpoints=endpoints, data={'tickers': ticker, 'datatype': datatype})
+        return self.make_request(endpoints=endpoints, data={'tickers': ticker, 'datatype': datatype, 'selectedFields': selectedFields})
 
-    def getCompanyFinancialSummary(self, ticker, selectedFields="all", datatype='json'):
+    def getCompanyFinancialSummary(self, ticker, selectedFields=None, datatype='json'):
         """ Get company financial summary by ticker
         Keyword Arguments:
             ticker: Company ticker
@@ -57,9 +57,9 @@ class CompanyInfo(ub):
             ticker = ",".join(ticker)
 
         endpoints = 'company/financialSummary'
-        return self.make_request(endpoints=endpoints, data={'tickers': ticker, 'datatype': datatype})
+        return self.make_request(endpoints=endpoints, data={'tickers': ticker, 'datatype': datatype, 'selectedFields': selectedFields})
 
-    def getOwnershipStructure(self, ticker, ownershipType, startDate, endDate, selectedFields="all", datatype="json"):
+    def getOwnershipStructure(self, ticker, ownershipType, startDate, endDate, selectedFields=None, datatype="json"):
         """ Get company ownership structure
         Keyword Arguments:
             ticker: Company ticker
@@ -78,9 +78,9 @@ class CompanyInfo(ub):
 
         return self.make_request(endpoints=endpoints,
                                  data={'tickers': ticker, 'ownershipType': ownershipType, 'startDate': startDate,
-                                       'endDate': endDate, 'datatype': datatype})
+                                       'endDate': endDate, 'datatype': datatype, 'selectedFields': selectedFields})
 
-    def getInsiderTransactions(self, ticker, startDate, endDate, selectedFields="all", datatype='json', size=None):
+    def getInsiderTransactions(self, ticker, startDate, endDate, selectedFields=None, datatype='json', size=None):
         """ Get insider transactions by ticker
         Keyword Arguments:
             ticker: Company ticker
@@ -95,7 +95,7 @@ class CompanyInfo(ub):
 
         return self.make_request(endpoints=endpoints,
                                  data={'tickers': ticker, 'startDate': startDate, 'endDate': endDate,
-                                       'datatype': datatype, 'size': size})
+                                       'datatype': datatype, 'size': size, 'selectedFields': selectedFields})
 
     # def getCIKNumber(self, ticker):
     # 	""" Get CIK Number by ticker
@@ -106,7 +106,7 @@ class CompanyInfo(ub):
 
     # 	return self.make_request(ticker=ticker, endpoints=endpoints, data={})
 
-    def getSECFilingLinks(self, ticker, startDate, endDate, selectedFields="all", datatype='json', size=None):
+    def getSECFilingLinks(self, ticker, startDate, endDate, selectedFields=None, datatype='json', size=None):
         """ Get SEC Filing links by ticker
         Keyword Arguments:
             ticker: Company ticker
@@ -121,4 +121,4 @@ class CompanyInfo(ub):
 
         return self.make_request(endpoints=endpoints,
                                  data={'tickers': ticker, 'startDate': startDate, 'endDate': endDate,
-                                       'datatype': datatype, 'size': size})
+                                       'datatype': datatype, 'size': size, 'selectedFields': selectedFields})

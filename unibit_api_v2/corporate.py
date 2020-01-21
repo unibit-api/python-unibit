@@ -3,7 +3,7 @@ from .unibit import UniBit as ub
 
 class Corporate(ub):
 
-    def getCorporateSplits(self, ticker, startDate, endDate, selectedFields="all", datatype='json', size=None):
+    def getCorporateSplits(self, ticker, startDate, endDate, selectedFields=None, datatype='json', size=None):
 
         if isinstance(ticker, list):
             ticker = ",".join(ticker)
@@ -14,9 +14,9 @@ class Corporate(ub):
 
         return self.make_request(endpoints=endpoints,
                                  data={'tickers': ticker, 'startDate': startDate, 'endDate': endDate,
-                                       'datatype': datatype, 'size': size})
+                                       'datatype': datatype, 'size': size, 'selectedFields': selectedFields})
 
-    def getCorporateDividends(self, ticker, startDate, endDate, selectedFields="all", datatype='json', size=None):
+    def getCorporateDividends(self, ticker, startDate, endDate, selectedFields=None, datatype='json', size=None):
 
         if isinstance(ticker, list):
             ticker = ",".join(ticker)
@@ -27,4 +27,4 @@ class Corporate(ub):
 
         return self.make_request(endpoints=endpoints,
                                  data={'tickers': ticker, 'startDate': startDate, 'endDate': endDate,
-                                       'datatype': datatype, 'size': size})
+                                       'datatype': datatype, 'size': size, 'selectedFields': selectedFields})

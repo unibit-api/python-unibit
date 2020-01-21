@@ -3,7 +3,7 @@ from .unibit import UniBit as ub
 
 class StockPrice(ub):
 
-    def getRealTimeStockPrice(self, ticker, startDate, endDate, startMinute, endMinute, size=None, selectedFields="all",
+    def getRealTimeStockPrice(self, ticker, startDate, endDate, startMinute, endMinute, size=None, selectedFields=None,
                               datatype='json'):
         """ Get real time stock prices
         Keyword Arguments:
@@ -14,6 +14,9 @@ class StockPrice(ub):
         """
 
         # endpoints = ['realtime']
+        # if selectedFields is None :
+        #     selectedFields = "all"
+
         if isinstance(ticker, list):
             ticker = ",".join(ticker)
         else:
@@ -24,9 +27,9 @@ class StockPrice(ub):
         return self.make_request(endpoints=endpoints,
                                  data={'tickers': ticker, 'startDate': startDate, 'endDate': endDate,
                                        'startMinute': startMinute, 'endMinute': endMinute, 'datatype': datatype,
-                                       'size': size})
+                                       'size': size, 'selectedFields': selectedFields})
 
-    def getHistoricalStockPrice(self, ticker, startDate, endDate, interval=1, selectedFields="all", datatype='json'):
+    def getHistoricalStockPrice(self, ticker, startDate, endDate, interval=1, selectedFields=None, datatype='json'):
         """ Get real time stock prices
         Keyword Arguments:
             ticker: Company ticker
@@ -53,4 +56,4 @@ class StockPrice(ub):
 
         return self.make_request(endpoints=endpoints,
                                  data={'tickers': ticker, 'startDate': startDate, 'endDate': endDate,
-                                       'datatype': datatype})
+                                       'datatype': datatype, 'selectedFields': selectedFields})
