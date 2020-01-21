@@ -4,7 +4,7 @@ from .unibit import UniBit as ub
 class ForexRate(ub):
 
     def getRealtimeForexRates(self, base, foreign, amount, startDate, endDate, startMinute, endMinute,
-                              selectedFields="all", datatype="json"):
+                              selectedFields=None, datatype="json"):
 
         if isinstance(foreign, list):
             foreign = ",".join(foreign)
@@ -20,10 +20,10 @@ class ForexRate(ub):
         return self.make_request(endpoints=endpoints,
                                  data={'base': base, 'foreign': foreign, 'amount': amount, 'startDate': startDate,
                                        'endDate': endDate, 'startMinute': startMinute, 'endMinute': endMinute,
-                                       'datatype': datatype})
+                                       'datatype': datatype, 'selectedFields': selectedFields})
 
     def getHistoricalForexRates(self, base, foreign, amount, startDate, endDate, startMinute, endMinute,
-                                selectedFields="all", datatype="json"):
+                                selectedFields=None, datatype="json"):
 
         if isinstance(foreign, list):
             foreign = ",".join(foreign)
@@ -39,4 +39,4 @@ class ForexRate(ub):
         return self.make_request(endpoints=endpoints,
                                  data={'base': base, 'foreign': foreign, 'amount': amount, 'startDate': startDate,
                                        'endDate': endDate, 'startMinute': startMinute, 'endMinute': endMinute,
-                                       'datatype': datatype})
+                                       'datatype': datatype, 'selectedFields': selectedFields})
