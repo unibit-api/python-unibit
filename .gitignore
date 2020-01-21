@@ -4,7 +4,8 @@
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
-unibit/__pycache__/
+unibit_api_v1/__pycache__/
+unibit_api_v2/__pycache__/
 __pycache__/
 *.py[cod]
 *$py.class
