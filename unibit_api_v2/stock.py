@@ -3,6 +3,32 @@ from .unibit import UniBit as ub
 
 class StockPrice(ub):
 
+    def getUSRealTimeStockPrice(self, ticker, startDate, endDate, startMinute="00:00:00", endMinute="23:59:59", size=None, selectedFields=None,
+                              datatype='json'):
+        """ Get real time stock prices
+        Keyword Arguments:
+            ticker: Company ticker
+            datatype: Data type of response. Either 'json' or 'csv'
+            size: Integer (n) which will have the response return the latest n prices.
+                    If unspecified, all real time results will be returned, going back 1 month.
+        """
+
+        # endpoints = ['realtime']
+        # if selectedFields is None :
+        #     selectedFields = "all"
+
+        if isinstance(ticker, list):
+            ticker = ",".join(ticker)
+        else:
+            raise TypeError('ticker input should be a list')
+
+        endpoints = "stock/us/realtime"
+
+        return self.make_request(endpoints=endpoints,
+                                 data={'tickers': ticker, 'startDate': startDate, 'endDate': endDate,
+                                       'startMinute': startMinute, 'endMinute': endMinute, 'datatype': datatype,
+                                       'size': size, 'selectedFields': selectedFields})
+
     def getRealTimeStockPrice(self, ticker, startDate, endDate, startMinute, endMinute, size=None, selectedFields=None,
                               datatype='json'):
         """ Get real time stock prices
